@@ -24,8 +24,8 @@ function MyDiff()
   let eq = ''
   if $VIMRUNTIME =~ ' '
     if &sh =~ '\<cmd'
-      let cmd = '""' . $VIMRUNTIME . '\diff"'
-      let eq = '"'
+      let cmd = '"' . $VIMRUNTIME . '\diff"'
+      let eq = '""'
     else
       let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
     endif
@@ -163,3 +163,47 @@ endif
 "设置tab字符和回车字符
 "set list
 "set listchars=tab:>\ ,eol:+
+"Just for acmer!
+map <F2> :call SetTitle()<CR>
+func SetTitle()
+	let l = 0
+	let l = l + 1 | call setline(l,'/* **********************************************')
+	let l = l + 1 | call setline(l,'')
+	let l = l + 1 | call setline(l,'  File Name: '.expand('%'))
+	let l = l + 1 | call setline(l,'')
+	let l = l + 1 | call setline(l,'  Auther: zhengdongjian@tju.edu.cn')
+	let l = l + 1 | call setline(l,'')
+	let l = l + 1 | call setline(l,'  Created Time: '.strftime('%c'))
+	let l = l + 1 | call setline(l,'')
+	let l = l + 1 | call setline(l,'*********************************************** */')
+	let l = l + 1 | call setline(l, '#include <map>')
+	let l = l + 1 | call setline(l, '#include <set>')
+	let l = l + 1 | call setline(l, '#include <list>')
+	let l = l + 1 | call setline(l, '#include <cmath>')
+	let l = l + 1 | call setline(l, '#include <ctime>')
+	let l = l + 1 | call setline(l, '#include <deque>')
+	let l = l + 1 | call setline(l, '#include <queue>')
+	let l = l + 1 | call setline(l, '#include <stack>')
+	let l = l + 1 | call setline(l, '#include <bitset>')
+	let l = l + 1 | call setline(l, '#include <cstdio>')
+	let l = l + 1 | call setline(l, '#include <string>')
+	let l = l + 1 | call setline(l, '#include <vector>')
+	let l = l + 1 | call setline(l, '#include <climits>')
+	let l = l + 1 | call setline(l, '#include <complex>')
+	let l = l + 1 | call setline(l, '#include <cstdlib>')
+	let l = l + 1 | call setline(l, '#include <cstring>')
+	let l = l + 1 | call setline(l, '#include <fstream>')
+	let l = l + 1 | call setline(l, '#include <sstream>')
+	let l = l + 1 | call setline(l, '#include <utility>')
+	let l = l + 1 | call setline(l, '#include <iostream>')
+	let l = l + 1 | call setline(l, '#include <algorithm>')
+	let l = l + 1 | call setline(l, '#include <functional>')
+	let l = l + 1 | call setline(l, 'using namespace std;')
+	let l = l + 1 | call setline(l, '')
+	let l = l + 1 | call setline(l, 'const double EPS = 1e-8;')
+	let l = l + 1 | call setline(l, 'const double PI = acos(-1.0);')
+	let l = l + 1 | call setline(l, 'typedef pair<int, int> P;')
+	let l = l + 1 | call setline(l, '')
+	let l = l + 1 | call setline(l, 'int main()')
+	let l = l + 1 | call setline(l, '')
+endfunc
