@@ -1,7 +1,7 @@
 " It's a vimrc file from gvim in Windows.
 " Also suitable for Linux
 " Besides, all the files(include the *.vim files have been pushed into
-" Á´½Ó: http://pan.baidu.com/s/1ntmkhSl ÃÜÂë: 175c)
+" é“¾æ¥: http://pan.baidu.com/s/1ntmkhSl å¯†ç : 175c)
 " Last Edited by JBer
 " 2015/03/16 4:15 p.m.
 "
@@ -10,121 +10,121 @@ source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
 behave mswin
 
-set diffexpr=MyDiff()
-function MyDiff()
-  let opt = '-a --binary '
-  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
-  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
-  let arg1 = v:fname_in
-  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
-  let arg2 = v:fname_new
-  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
-  let arg3 = v:fname_out
-  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
-  let eq = ''
-  if $VIMRUNTIME =~ ' '
-    if &sh =~ '\<cmd'
-      let cmd = '"' . $VIMRUNTIME . '\diff"'
-      let eq = '""'
-    else
-      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
-    endif
-  else
-    let cmd = $VIMRUNTIME . '\diff'
-  endif
-  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
-endfunction
+"set diffexpr=MyDiff()
+"function MyDiff()
+"  let opt = '-a --binary '
+"  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+"  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+"  let arg1 = v:fname_in
+"  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+"  let arg2 = v:fname_new
+"  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+"  let arg3 = v:fname_out
+"  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+"  let eq = ''
+"  if $VIMRUNTIME =~ ' '
+"    if &sh =~ '\<cmd'
+"      let cmd = '""' . $VIMRUNTIME . '\diff"'
+"      let eq = '"'
+"    else
+"      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+"    endif
+"  else
+"    let cmd = $VIMRUNTIME . '\diff'
+"  endif
+"  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
+"endfunction
 
 "Added by JBer --- 2015/03/10 8:01 p.m.
-" ¶¨Òå¿ì½İ¼üµÄÇ°×º£¬¼´<Leader>
+" å®šä¹‰å¿«æ·é”®çš„å‰ç¼€ï¼Œå³<Leader>
 let mapleader=";"
-"ÎÄ¼şÀàĞÍÕì²â¡£ÔÊĞí»ùÓÚ²»Í¬ÓïÑÔ¼ÓÔØ²»Í¬²å¼ş£¨Èç£¬C++ µÄÓï·¨¸ßÁÁ²å¼şÓë python µÄ²»Í¬£©£º
-" ¿ªÆôÎÄ¼şÀàĞÍÕì²â
+"æ–‡ä»¶ç±»å‹ä¾¦æµ‹ã€‚å…è®¸åŸºäºä¸åŒè¯­è¨€åŠ è½½ä¸åŒæ’ä»¶ï¼ˆå¦‚ï¼ŒC++ çš„è¯­æ³•é«˜äº®æ’ä»¶ä¸ python çš„ä¸åŒï¼‰ï¼š
+" å¼€å¯æ–‡ä»¶ç±»å‹ä¾¦æµ‹
 filetype on
-" ¸ù¾İÕì²âµ½µÄ²»Í¬ÀàĞÍ¼ÓÔØ¶ÔÓ¦µÄ²å¼ş
+" æ ¹æ®ä¾¦æµ‹åˆ°çš„ä¸åŒç±»å‹åŠ è½½å¯¹åº”çš„æ’ä»¶
 filetype plugin on
-" ¿ì½İ¼ü¡£°Ñ vim£¨·Ç²å¼ş£©³£ÓÃ²Ù×÷Éè¶¨³É¿ì½İ¼ü£¬ÌáÉıĞ§ÂÊ£º
-" ¶¨Òå¿ì½İ¼üÔÚ½á¶Ô·ûÖ®¼äÌø×ª£¬Öú¼Çpair
+" å¿«æ·é”®ã€‚æŠŠ vimï¼ˆéæ’ä»¶ï¼‰å¸¸ç”¨æ“ä½œè®¾å®šæˆå¿«æ·é”®ï¼Œæå‡æ•ˆç‡ï¼š
+" å®šä¹‰å¿«æ·é”®åœ¨ç»“å¯¹ç¬¦ä¹‹é—´è·³è½¬ï¼ŒåŠ©è®°pair
 nmap <Leader>pa %
-" ÆäËû¡£ËÑË÷¡¢vim ÃüÁî²¹È«µÈÉèÖÃ£º
-" ¿ªÆôÊµÊ±ËÑË÷¹¦ÄÜ
+" å…¶ä»–ã€‚æœç´¢ã€vim å‘½ä»¤è¡¥å…¨ç­‰è®¾ç½®ï¼š
+" å¼€å¯å®æ—¶æœç´¢åŠŸèƒ½
 set incsearch
-" ËÑË÷Ê±´óĞ¡Ğ´²»Ãô¸Ğ
+" æœç´¢æ—¶å¤§å°å†™ä¸æ•æ„Ÿ
 set ignorecase
-" ¹Ø±Õ¼æÈİÄ£Ê½
+" å…³é—­å…¼å®¹æ¨¡å¼
 set nocompatible
-" vim ×ÔÉíÃüÁîĞĞÄ£Ê½ÖÇÄÜ²¹È«
+" vim è‡ªèº«å‘½ä»¤è¡Œæ¨¡å¼æ™ºèƒ½è¡¥å…¨
 set wildmenu
-" ½ûÓÃ×Ô¶¯±¸·İ
+" ç¦ç”¨è‡ªåŠ¨å¤‡ä»½
 set nobackup
 
-" ÉèÖÃÅäÉ«·½°¸-molokai.vim
+" è®¾ç½®é…è‰²æ–¹æ¡ˆ-molokai.vim
 syntax enable
 colorscheme Monokai
 
-" ½ûÖ¹¹â±êÉÁË¸
+" ç¦æ­¢å…‰æ ‡é—ªçƒ
 set gcr=a:block-blinkon0
 
-" ±³¾°:°µÉ«
+" èƒŒæ™¯:æš—è‰²
 "set bg=dark
 
-"¸öÈËÉèÖÃ
+"ä¸ªäººè®¾ç½®
 execute pathogen#infect()
 
 filetype on
-set smartindent   "ÉèÖÃÖÇÄÜËõ½ø
-set shortmess=atI "È¥µô»¶Ó­½çÃæ
-colorscheme monokai          "sublimeµÄÅäÉ«·½°¸
-set guifont=Consolas:h12      "×ÖÌåÓë×ÖºÅ
-set autoindent               " ×Ô¶¯¶ÔÆë
-set smartindent              " ÖÇÄÜ×Ô¶¯Ëõ½ø
-set ai!                      " ÉèÖÃ×Ô¶¯Ëõ½ø
-set nu!                      " ÏÔÊ¾ĞĞºÅ
-set mouse=a                  " ÆôÓÃÊó±ê
-set ruler                    " ÓÒÏÂ½ÇÏÔÊ¾¹â±êÎ»ÖÃµÄ×´Ì¬ĞĞ
-set incsearch                " ²éÕÒbookÊ±£¬µ±ÊäÈë/bÊ±»á×Ô¶¯ÕÒµ½
-set hlsearch                 " ¿ªÆô¸ßÁÁÏÔÊ¾½á¹û
-set incsearch                " ¿ªÆôÊµÊ±ËÑË÷¹¦ÄÜ
-" set nowrapscan               " ËÑË÷µ½ÎÄ¼şÁ½¶ËÊ±²»ÖØĞÂËÑË÷
-set nocompatible             " ¹Ø±Õ¼æÈİÄ£Ê½
-set vb t_vb=                 " ¹Ø±ÕÌáÊ¾Òô
-au GuiEnter * set t_vb=     " ½ûÓÃÆÁÄ»ÉÁË¸£¨¶àÓàÃüÁîÆÁÄ»¾ù»áÉÁË¸£©
-" set hidden                   " ÔÊĞíÔÚÓĞÎ´±£´æµÄĞŞ¸ÄÊ±ÇĞ»»»º³åÇø
-" set list                     " ÏÔÊ¾Tab·û£¬Ê¹ÓÃÒ»¸ßÁÁÊúÏß´úÌæ
+set smartindent   "è®¾ç½®æ™ºèƒ½ç¼©è¿›
+"set shortmess=atI "å»æ‰æ¬¢è¿ç•Œé¢
+colorscheme monokai          "sublimeçš„é…è‰²æ–¹æ¡ˆ
+set guifont=Consolas:h12      "å­—ä½“ä¸å­—å·
+set autoindent               " è‡ªåŠ¨å¯¹é½
+set smartindent              " æ™ºèƒ½è‡ªåŠ¨ç¼©è¿›
+set ai!                      " è®¾ç½®è‡ªåŠ¨ç¼©è¿›
+set nu!                      " æ˜¾ç¤ºè¡Œå·
+set mouse=a                  " å¯ç”¨é¼ æ ‡
+set ruler                    " å³ä¸‹è§’æ˜¾ç¤ºå…‰æ ‡ä½ç½®çš„çŠ¶æ€è¡Œ
+set incsearch                " æŸ¥æ‰¾bookæ—¶ï¼Œå½“è¾“å…¥/bæ—¶ä¼šè‡ªåŠ¨æ‰¾åˆ°
+set hlsearch                 " å¼€å¯é«˜äº®æ˜¾ç¤ºç»“æœ
+set incsearch                " å¼€å¯å®æ—¶æœç´¢åŠŸèƒ½
+" set nowrapscan               " æœç´¢åˆ°æ–‡ä»¶ä¸¤ç«¯æ—¶ä¸é‡æ–°æœç´¢
+set nocompatible             " å…³é—­å…¼å®¹æ¨¡å¼
+set vb t_vb=                 " å…³é—­æç¤ºéŸ³
+au GuiEnter * set t_vb=     " ç¦ç”¨å±å¹•é—ªçƒï¼ˆå¤šä½™å‘½ä»¤å±å¹•å‡ä¼šé—ªçƒï¼‰
+" set hidden                   " å…è®¸åœ¨æœ‰æœªä¿å­˜çš„ä¿®æ”¹æ—¶åˆ‡æ¢ç¼“å†²åŒº
+" set list                     " æ˜¾ç¤ºTabç¬¦ï¼Œä½¿ç”¨ä¸€é«˜äº®ç«–çº¿ä»£æ›¿
 " set listchars=tab:\|\ ,
-syntax enable                " ´ò¿ªÓï·¨¸ßÁÁ
-syntax on                    " ¿ªÆôÎÄ¼şÀàĞÍÕì²â
-filetype indent on           " Õë¶Ô²»Í¬µÄÎÄ¼şÀàĞÍ²ÉÓÃ²»Í¬µÄËõ½ø¸ñÊ½
-filetype plugin on           " Õë¶Ô²»Í¬µÄÎÄ¼şÀàĞÍ¼ÓÔØ¶ÔÓ¦µÄ²å¼ş
-filetype plugin indent on    " ÆôÓÃ×Ô¶¯²¹È«
+syntax enable                " æ‰“å¼€è¯­æ³•é«˜äº®
+syntax on                    " å¼€å¯æ–‡ä»¶ç±»å‹ä¾¦æµ‹
+filetype indent on           " é’ˆå¯¹ä¸åŒçš„æ–‡ä»¶ç±»å‹é‡‡ç”¨ä¸åŒçš„ç¼©è¿›æ ¼å¼
+filetype plugin on           " é’ˆå¯¹ä¸åŒçš„æ–‡ä»¶ç±»å‹åŠ è½½å¯¹åº”çš„æ’ä»¶
+filetype plugin indent on    " å¯ç”¨è‡ªåŠ¨è¡¥å…¨
 
-"gvim °æ±¾Îª7.4.*
+"gvim ç‰ˆæœ¬ä¸º7.4.*
 set encoding=utf-8
-set fileencodings=utf-8,gbk,gb18030,gk2312
-"½â¾ö²Ëµ¥ÂÒÂë
+set fileencodings=utf-8,gbk,gb18030,gb2312
+"è§£å†³èœå•ä¹±ç 
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
-"½â¾öconsleÊä³öÂÒÂë
+"è§£å†³consleè¾“å‡ºä¹±ç 
 language messages zh_CN.utf-8
-"ÉèÖÃ<F5>Îª¿ìËÙ±àÒëÔËĞĞCÜ³ÎÄ¼ş
-"LinuxÏÂÇëĞŞ¸ÄÏà¹ØÃüÁî
-"¶¨ÒåCompileRunº¯Êı£¬ÓÃÀ´µ÷ÓÃ½øĞĞ±àÒëºÍÔËĞĞ
+"è®¾ç½®<F5>ä¸ºå¿«é€Ÿç¼–è¯‘è¿è¡ŒCè‰¹æ–‡ä»¶
+"Linuxä¸‹è¯·ä¿®æ”¹ç›¸å…³å‘½ä»¤
+"å®šä¹‰CompileRunå‡½æ•°ï¼Œç”¨æ¥è°ƒç”¨è¿›è¡Œç¼–è¯‘å’Œè¿è¡Œ
 func CompileRun()
 exec "w"
-"C³ÌĞò
+"Cç¨‹åº
 if &filetype == 'c'
 exec "!gcc -Wl,-enable-auto-import % -g -o %<.exe"
-"c++³ÌĞò
+"c++ç¨‹åº
 elseif &filetype == 'cpp'
 exec "!g++ -Wl,-enable-auto-import % -g -o %<.exe"
-"Java³ÌĞò
+"Javaç¨‹åº
 elseif &filetype == 'java'
 exec "!javac %"
 endif
 call Run()
 endfunc
-"½áÊø¶¨ÒåCompileRun
-"¶¨ÒåRunº¯Êı
+"ç»“æŸå®šä¹‰CompileRun
+"å®šä¹‰Runå‡½æ•°
 func Run()
 if &filetype == 'c' || &filetype == 'cpp'
 exec "!%<.exe"
@@ -132,48 +132,69 @@ elseif &filetype == 'java'
 exec "!java %<"
 endif
 endfunc
-"¶¨ÒåDebugº¯Êı£¬ÓÃÀ´µ÷ÊÔ³ÌĞò
+"å®šä¹‰Debugå‡½æ•°ï¼Œç”¨æ¥è°ƒè¯•ç¨‹åº
 func Debug()
 exec "w"
-"C³ÌĞò
+"Cç¨‹åº
 if &filetype == 'c'
 exec "!gcc % -g -o %<.exe"
 exec "!gdb %<.exe"
 elseif &filetype == 'cpp'
 exec "!g++ % -g -o %<.exe"
 exec "!gdb %<.exe"
-"Java³ÌĞò
+"Javaç¨‹åº
 elseif &filetype == 'java'
 exec "!javac %"
 exec "!jdb %<"
 endif
 endfunc
-"½áÊø¶¨ÒåDebug
-"ÉèÖÃ³ÌĞòµÄÔËĞĞºÍµ÷ÊÔµÄ¿ì½İ¼üF5ºÍCtrl-F5
+"ç»“æŸå®šä¹‰Debug
+"è®¾ç½®ç¨‹åºçš„è¿è¡Œå’Œè°ƒè¯•çš„å¿«æ·é”®F5å’ŒCtrl-F5
 map <F5> :call CompileRun()<CR>
 map <F6> :call Run()<CR>
 map <C-F5> :call Debug()<CR>
 "endfunc
-"¸ù¾İÎÄ¼şÀàĞÍËõ½ø,Ìí¼ÓÁË:
-"javascript[for node.js]
+"æ ¹æ®æ–‡ä»¶ç±»å‹ç¼©è¿›,æ·»åŠ äº†:
+"javascript[for node.js], python
 if has("autocmd")
-	autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
+	autocmd FileType javascript,html,xhtml,css,xml,vim setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType python,py setlocal ts=2 sts=2 sw=2 expandtab
 endif
 
-"ÉèÖÃtab×Ö·ûºÍ»Ø³µ×Ö·û
+"è®¾ç½®tabå­—ç¬¦å’Œå›è½¦å­—ç¬¦
 "set list
 "set listchars=tab:>\ ,eol:+
-"Just for acmer!
+
 map <F2> :call SetTitle()<CR>
+map <C-F2> :call SetTitle2()<CR>
 func SetTitle()
 	let l = 0
 	let l = l + 1 | call setline(l,'/* **********************************************')
 	let l = l + 1 | call setline(l,'')
-	let l = l + 1 | call setline(l,'  File Name: '.expand('%'))
+	let l = l + 1 | call setline(l,'    File Name: '.expand(bufname('%')))
+	"let l = l + 1 | call setline(l,'    File Name: '.expand('%'))
 	let l = l + 1 | call setline(l,'')
-	let l = l + 1 | call setline(l,'  Auther: zhengdongjian@tju.edu.cn')
+	let l = l + 1 | call setline(l,'    Author: zhengdongjian@tju.edu.cn')
 	let l = l + 1 | call setline(l,'')
-	let l = l + 1 | call setline(l,'  Created Time: '.strftime('%c'))
+	let l = l + 1 | call setline(l,'    Created Time: '.strftime('%c'))
+	let l = l + 1 | call setline(l,'')
+	let l = l + 1 | call setline(l,'*********************************************** */')
+	let l = l + 1 | call setline(l, '#include <bits/stdc++.h>')
+	let l = l + 1 | call setline(l, 'using namespace std;')
+	let l = l + 1 | call setline(l, '')
+	let l = l + 1 | call setline(l, 'typedef long long ll;')
+	let l = l + 1 | call setline(l, 'typedef pair<int, int> P;')
+endfunc
+func SetTitle2()
+	let l = 0
+	let l = l + 1 | call setline(l,'/* **********************************************')
+	let l = l + 1 | call setline(l,'')
+	let l = l + 1 | call setline(l,'    File Name: '.expand(bufname('%')))
+	"let l = l + 1 | call setline(l,'    File Name: '.expand('%'))
+	let l = l + 1 | call setline(l,'')
+	let l = l + 1 | call setline(l,'    Author: zhengdongjian@tju.edu.cn')
+	let l = l + 1 | call setline(l,'')
+	let l = l + 1 | call setline(l,'    Created Time: '.strftime('%c'))
 	let l = l + 1 | call setline(l,'')
 	let l = l + 1 | call setline(l,'*********************************************** */')
 	let l = l + 1 | call setline(l, '#include <map>')
@@ -200,10 +221,7 @@ func SetTitle()
 	let l = l + 1 | call setline(l, '#include <functional>')
 	let l = l + 1 | call setline(l, 'using namespace std;')
 	let l = l + 1 | call setline(l, '')
-	let l = l + 1 | call setline(l, 'const double EPS = 1e-8;')
-	let l = l + 1 | call setline(l, 'const double PI = acos(-1.0);')
+	let l = l + 1 | call setline(l, 'typedef long long ll;')
 	let l = l + 1 | call setline(l, 'typedef pair<int, int> P;')
-	let l = l + 1 | call setline(l, '')
-	let l = l + 1 | call setline(l, 'int main()')
-	let l = l + 1 | call setline(l, '')
 endfunc
+
