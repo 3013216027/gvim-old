@@ -1,5 +1,5 @@
 #it's JBer's vim profile#
-Also see github.com/3013216027/vim
+Also see [https://github.com/3013216027/vim](https://github.com/3013216027/vim)
 ----
 ##Before config##
     
